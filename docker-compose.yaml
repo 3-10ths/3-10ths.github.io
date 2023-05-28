@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+  app:
+    image: ${IMAGE_REPO}${IMAGE_NAME:?err}:${IMAGE_TAG:?err}
+    platform: ${IMAGE_PLATFORM:-linux/arm64}
+    build:
+      context: .
+      target: ${IMAGE_TARGET:-export}
+    env_file:
+      - ./.env.local
+    restart: unless-stopped
+    ports:
+      - 3000:3000

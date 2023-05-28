@@ -1,0 +1,30 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: "Demonstration lambda SAM template using NextJS 13.4"
+Globals:
+  Function:
+    Timeout: 60
+
+Resources:
+  DemoNextJsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      MemorySize: 256
+      PackageType: Image
+      Architectures:
+        - arm64
+      FunctionUrlConfig:
+        AuthType: NONE
+        InvokeMode: RESPONSE_STREAM
+    Metadata:
+      DockerTag: latest-lambda
+      DockerContext: .
+      Dockerfile: Dockerfile
+
+Outputs:
+  DemoNextJsFunctionOutput:
+    Description: "Function ARN"
+    Value: !GetAtt DemoNextJsFunction.Arn
+  DemoNextJsFunctionUrl:
+    Description: "Function URL"
+    Value: !GetAtt DemoNextJsFunction.FunctionUrl

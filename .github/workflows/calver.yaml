@@ -1,0 +1,26 @@
+name: CalVar Tagging
+on:
+  workflow_dispatch:
+    inputs:
+      variant:
+        required: true
+        description: Variant tag to pass to CalVer
+        type: string
+  push:
+    branches:
+      - "**"
+    tags:
+      - "!**"
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    name: Tag revision
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Version
+        run: |
+          sudo curl -s -o /usr/local/bin/calver.sh https://raw.githubusercontent.com/acrois/scripts/HEAD/shell/calver.sh && sudo chmod +x /usr/local/bin/calver.sh
+          calver.sh --auto --apply --push
