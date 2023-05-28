@@ -1,6 +1,6 @@
 # ThreeTenths
 
-[![Deploy GitHub Pages](https://github.com/3-10ths/3-10ths.github.io/actions/workflows/nextjs.yml/badge.svg)](https://github.com/3-10ths/3-10ths.github.io/actions/workflows/nextjs.yml)
+[![CalVer Tagging](https://github.com/3-10ths/3-10ths.github.io/actions/workflows/calver.yaml/badge.svg)](https://github.com/3-10ths/3-10ths.github.io/actions/workflows/calver.yaml) [![Deploy GitHub Pages](https://github.com/3-10ths/3-10ths.github.io/actions/workflows/nextjs.yml/badge.svg)](https://github.com/3-10ths/3-10ths.github.io/actions/workflows/nextjs.yml)
 
 Statically generated landing page. Hosted on [GitHub Pages](https://3-10ths.github.io/) using [GitHub Actions](https://github.com/3-10ths/3-10ths.github.io/actions/workflows/nextjs.yml).
 

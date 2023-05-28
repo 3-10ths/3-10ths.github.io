@@ -49,17 +49,17 @@ jobs:
             echo "Unable to determine package manager"
             exit 1
           fi
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: "16"
-          cache: ${{ steps.detect-package-manager.outputs.manager }}
       - uses: pnpm/action-setup@v2
         if: steps.detect-package-manager.outputs.manager == 'pnpm'
         name: Install pnpm
         id: pnpm-install
         with:
           run_install: false
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+          cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: Get pnpm store directory
         if: steps.detect-package-manager.outputs.manager == 'pnpm'
         id: pnpm-cache

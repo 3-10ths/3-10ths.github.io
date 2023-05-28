@@ -1,4 +1,4 @@
-name: CalVar Tagging
+name: CalVer Tagging
 on:
   workflow_dispatch:
     inputs:
@@ -11,6 +11,8 @@ on:
       - "**"
     tags:
       - "!**"
+permissions:
+  contents: write
 jobs:
   apply:
     runs-on: ubuntu-latest
